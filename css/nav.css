@@ -15,5 +15,15 @@
     color: white;
     font-size: 16px;
     text-decoration: none;
-    padding: 16px 14px;
+    padding: 25px 14px;
+}
+
+#logo {
+    position: relative;
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    margin-right: auto;
+    padding: 12px 10px 12px 15px;
 }
