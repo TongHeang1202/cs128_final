@@ -11,11 +11,12 @@
 }
 
 .topnav a {
-    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     font-size: 20px;
     text-decoration: none;
-    padding: 25px 14px;
     transition: 0.3s ease;
     border-radius: 5px;
 }
@@ -37,13 +38,29 @@
 .topnav-mid {
     display: flex;
     justify-content: space-between;
-    width: 350px;
+    align-items: center;
+    width: 450px;
     height: 70px;
+}
+
+.topnav-mid a {
+    width: 20%;
+    height: 40px;
 }
 
 .topnav-right {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     width: 240px;
     height: 70px;
+}
+
+.topnav-right a {
+    width: 40%;
+    height: 40px;
+}
+
+#shopping_cart {
+    width: 20%;
 }
