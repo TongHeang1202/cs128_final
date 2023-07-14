@@ -24,9 +24,14 @@
     text-transform: capitalize;
     color: white;
 }
+.footer-link:hover{
+    color: #ddd;
+}
 .footer-link-img{
     margin-top: 20px;
+    color: white;
+    text-transform: capitalize;
 }
-.footer-link:hover{
+.footer-link-img:hover{
     color: #ddd;
 }
