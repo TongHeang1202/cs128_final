@@ -58,7 +58,15 @@
     background-color: rgb(209, 193, 193);
 } */
 
-.product-showcase img {
-    width: 75%;
-    margin-top: 50px;
+.guitar-container p {
+    align-items: center;
+    float: left;
+    margin: 20px 30px;
+    font-size: 20px;
+    font-weight: 600;
 }
+.guitar-container img {
+    width: 75%;
+    /* height: 230px; */
+    /* margin-top: 30px; */
+} 
