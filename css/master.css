@@ -57,11 +57,20 @@
     overflow: hidden;
 }
 
-
 .product-showcase {
     text-align: center;
     width: 22%;
     height: 350px;
     background-color: #e1e1e1;
     border-radius: 20px;
+    overflow: hidden;
+}
+
+.product-showcase-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    color: #e1e1e1;
+    background-color: #333;
 }
