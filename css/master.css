@@ -25,10 +25,13 @@
     flex-wrap: wrap;
     align-content: flex-start;
     row-gap: 5%;
-    width: 90%;
+    width: 1200px;
+    margin: 0 auto;
     height: 500px;
-    padding: 5%;
-    background-color: #ddd;
+    padding: 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    /* background-color: #ddd; */
 }
 
 .product-showcase-header {
@@ -43,13 +46,20 @@
 }
 
 .product-showcase {
-    width: 20%;
-    height: 380px;
+    text-align: center;
+    width: 22%;
+    height: 350px;
+    background-color: #f7f7f7;
     border: 2px solid #777;
     border-radius: 20px;
 }
 
 
-.guitar-container {
-    background-color: #999;
+/* .guitar-container {
+    background-color: rgb(209, 193, 193);
+} */
+
+.product-showcase img {
+    width: 80%;
+    margin-top: 40px;
 }
