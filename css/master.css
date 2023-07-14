@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
 }
 
 .main-body {
@@ -46,6 +47,7 @@
     border: 2px solid #777;
     border-radius: 20px;
 }
+
 
 .guitar-container {
     background-color: #999;
