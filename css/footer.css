@@ -24,6 +24,9 @@
     text-transform: capitalize;
     color: white;
 }
+.footer-link-img{
+    margin-top: 20px;
+}
 .footer-link:hover{
     color: #ddd;
 }
