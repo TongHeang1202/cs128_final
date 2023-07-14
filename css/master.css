@@ -61,7 +61,7 @@
     text-align: center;
     width: 22%;
     height: 350px;
-    background-color: #f7f7f7;
+    background-color: #e1e1e1;
     border: 2px solid #777;
     border-radius: 20px;
 }
@@ -71,7 +71,15 @@
     background-color: rgb(209, 193, 193);
 } */
 
-.product-showcase img {
-    width: 80%;
-    margin-top: 40px;
+.guitar-container p {
+    align-items: center;
+    float: left;
+    margin: 20px 30px;
+    font-size: 20px;
+    font-weight: 600;
 }
+.guitar-container img {
+    width: 75%;
+    /* height: 230px; */
+    /* margin-top: 30px; */
+} 
