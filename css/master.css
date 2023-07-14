@@ -37,8 +37,9 @@
     padding: 20px 0px;
     font-size: 20px;
     text-align: center;
-    border: 2px solid #777;
+    border: 2px solid #fff;
     border-radius: 20px;
+    background-color: #fff;
 }
 
 .product-showcase {
