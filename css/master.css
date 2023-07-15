@@ -58,17 +58,20 @@
 }
 
 .product-showcase {
+    position: relative;
     text-align: center;
     width: 22%;
     height: 75%;
+    top: 0;
     background-color: #e1e1e1;
     border: 2px solid #fff;
     border-radius: 20px;
     overflow: hidden;
-    transition: 0.3s ease;
+    transition: 0.7s ease;
 }
 
 .product-showcase:hover {
+    top: -10px;
     border: 2px solid #000;
     cursor: pointer;
 }
@@ -78,10 +81,18 @@
     justify-content: center;
     align-items: center;
     height: 15%;
-    color: #e1e1e1;
-    background-color: #333;
+    color: #fff;
+    background-color: #000;
 }
 
 .piano {
     background-image: url("../images/piano-background.jpg");
+}
+
+.guitar {
+    background-image: url("../images/guitar-background.jpg");
+}
+
+.violin {
+    background-image: url("../images/violin-background.jpg");
 }
