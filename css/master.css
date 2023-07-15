@@ -76,7 +76,7 @@
 
 .product-showcase:hover {
     top: -10px;
-    border: 2px solid #000;
+    border: 2px solid #111;
     cursor: pointer;
     filter: brightness(100%);
 }
@@ -89,7 +89,7 @@
     height: 20%;
     margin: 0;
     color: #fff;
-    background-color: #333;
+    background-color: #111;
     border-radius: 20px;
 }
 
