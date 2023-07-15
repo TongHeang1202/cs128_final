@@ -66,24 +66,6 @@
     overflow: hidden;
 }
 
-<<<<<<< HEAD
-/* .guitar-container {
-    background-color: rgb(209, 193, 193);
-} */
-
-.guitar-container p {
-    align-items: center;
-    float: left;
-    margin: 20px 30px;
-    font-size: 20px;
-    font-weight: 600;
-}
-.guitar-container img {
-    width: 260px;
-    border-radius: 20px;
-
-} 
-=======
 .product-showcase-label {
     display: flex;
     justify-content: center;
@@ -92,4 +74,3 @@
     color: #e1e1e1;
     background-color: #333;
 }
->>>>>>> 5c30e598a63b5a3bd804e03166be3e7c8c620194
