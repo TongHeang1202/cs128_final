@@ -11,6 +11,8 @@
 }
 
 .topnav a {
+    position: relative;
+    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,18 +23,36 @@
     border-radius: 5px;
 }
 
-.topnav a:hover {
+.topnav-mid a:hover {
+    top: -3px;
     text-decoration: none;
     color: rgb(255, 255, 255);
     background-color: grey;
 }
 
-#logo {
+.topnav-left {
+    position: relative;
+    left: 0;
+    display: flex;
     width: 240px;
-    height: 46px;
-    font-size: 40px;
+    transition: 0.3s ease;
+}
+
+.topnav-left a {
+    font-size: 25px;
     font-weight: bold;
-    padding: 12px 20px;
+}
+
+.topnav-left:hover {
+    left: 5px;
+}
+
+.topnav-left img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.topnav-left:hover img{
+    transform: rotate(360deg);
 }
 
 .topnav-mid {
