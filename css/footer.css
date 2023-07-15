@@ -21,6 +21,17 @@
     font-weight: bold;
     font-size: larger;
 }
+
+.ear-candy-logo
+{
+    width:120px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.ear-candy-logo:hover {
+    transform: rotate(360deg);
+}
+
 .footer-link{
     text-transform: capitalize;
     color: white;
