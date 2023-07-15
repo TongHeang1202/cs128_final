@@ -51,7 +51,7 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.topnav-left:hover img{
+.topnav-left:hover img {
     transform: rotate(360deg);
 }
 

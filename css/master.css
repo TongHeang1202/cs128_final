@@ -40,14 +40,14 @@
     text-align: center;
     z-index: 2;
 }
-.showcase-banner
-{
+
+.showcase-banner {
     position: relative;
     height: 700px;
     overflow: hidden;
 }
-.showcase-banner img 
-{
+
+.showcase-banner img {
     width: 100%;
     height: auto;
     opacity: 150%;
