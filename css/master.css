@@ -56,16 +56,16 @@
 .product-showcase-container {
     position: absolute;
     top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     column-gap: 5%;
     flex-wrap: wrap;
     align-content: flex-start;
     row-gap: 5%;
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
     height: 500px;
-    padding: 40px 150px;
     border-radius: 20px;
     margin-top: 20px;
 }
