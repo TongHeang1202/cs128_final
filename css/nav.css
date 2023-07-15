@@ -79,11 +79,8 @@
 .topnav-right a {
     width: 40%;
     height: 40px;
-    margin-right: 20px;
-}
-
-#shopping_cart {
-    width: 30%;
+    margin: 0 5px;
+    padding: 0 5px;
 }
 
 .topnav-right a:hover {
@@ -91,4 +88,13 @@
     text-decoration: none;
     color: rgb(255, 255, 255);
     background-color: grey;
+}
+
+#shopping-cart {
+    width: 20%;
+}
+
+#shopping-cart img{
+    width: 30px;
+    height: 30px;
 }
