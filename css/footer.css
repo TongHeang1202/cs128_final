@@ -24,7 +24,7 @@
 
 .ear-candy-logo
 {
-    width:120px;
+    width:100px;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -35,6 +35,7 @@
 .footer-link{
     text-transform: capitalize;
     color: white;
+    font-size: 15px ;
     padding: 10px;
     border-radius: 5px;
 }
@@ -46,6 +47,7 @@
 .footer-link-img{
     color: white;
     text-transform: capitalize;
+    font-size: 15px;
     padding: 10px;
     border-radius: 5px;
 }
@@ -58,7 +60,7 @@
     color:white;
     display: flex;
     margin-top: 25px;
-    font-size: large;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: lighter;
     justify-content: center;
 }
