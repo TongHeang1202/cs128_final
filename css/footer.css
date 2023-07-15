@@ -55,11 +55,14 @@
 }
 
 .footer-link-img {
-    color: white;
-    text-transform: capitalize;
-    font-size: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+.footer-link-img img{
+    width: 30px;
+    height: 30px;
     padding: 10px;
-    border-radius: 5px;
 }
 
 .footer-bottom {
