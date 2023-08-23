@@ -35,7 +35,7 @@
                     <h1>Products</h1>
                 </div>
 
-                <a class="product-showcase piano" href="#">
+                <a class="product-showcase piano" href="piano.php">
                     <img class="product-showcase-background" src="images/frontpage_images/piano-background.jpg">
                     <h1 class="product-showcase-label">Piano</h1>
                 </a>

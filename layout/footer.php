@@ -12,7 +12,7 @@
             <!-- product -->
             <div class="footer-link-wrapper">
                 <div class="footer-header">Products</div>
-                <a class="footer-link" href="#">Piano</a>
+                <a class="footer-link" href="../piano.php">Piano</a>
                 <a class="footer-link" href="#">Guitar</a>
                 <a class="footer-link" href="#">Violin</a>
             </div>
