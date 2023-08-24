@@ -5,7 +5,7 @@
         </div>
 
         <div class="topnav-mid">
-            <a id="piano" href="../piano.php">Piano</a>
+            <a id="piano" href="./piano.php">Piano</a>
             <a id="guitar" href="#">Guitar</a>
             <a id="violin" href="#">Violin</a>
             <a id="about" href="#">About</a>
