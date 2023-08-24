@@ -15,6 +15,12 @@
     <!-- Close Navigation Bar Container -->
 
     <div class="container1">
+        <img class="container-background" src="images/frontpage_images/showcase-banner-background.jpg">
+        <h1 class=container-title>PIANO</h1>
+
+        <div class=product-showcase-container>
+            
+        </div>
 
     </div>
     
