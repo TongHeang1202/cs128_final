@@ -19,7 +19,18 @@
         <h1 class=container-title>PIANO</h1>
 
         <div class=product-showcase-container>
+            <?php 
+
+            for ($i = 0; $i < 10; $i++){
+            ?>
+                <div class="product-showcase">
+                    <img class="product-showcase-image" src="images/frontpage_images/piano-background.jpg">
+                    <div class="product-showcase-tag"><span>PlaceHolder</span></div>
+                </div>
+            <?php
+            }
             
+            ?>
         </div>
 
     </div>
