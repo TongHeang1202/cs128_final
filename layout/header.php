@@ -5,9 +5,10 @@
         </div>
 
         <div class="topnav-mid">
+            <a id="home "href="index.php">Home</a>
             <a id="piano" href="./piano.php">Piano</a>
-            <a id="guitar" href="#">Guitar</a>
-            <a id="violin" href="#">Violin</a>
+            <a id="guitar" href="guitar.php">Guitar</a>
+            <a id="violin" href="violin.php">Violin</a>
             <a id="about" href="#">About</a>
             <a id="support" href="#">Support</a>
         </div>
