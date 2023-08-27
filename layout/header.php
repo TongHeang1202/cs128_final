@@ -1,7 +1,9 @@
 <div class="topnav">
         <div class="topnav-left">
-            <img class="logo" src="images/logo.png">
-            <a href="./">EAR CANDY</a>
+            <a href="./">
+                <img class="logo" src="images/logo.png">
+                EAR CANDY
+            </a>
         </div>
 
         <div class="topnav-mid">
