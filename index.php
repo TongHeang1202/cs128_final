@@ -40,12 +40,12 @@
                     <h1 class="product-showcase-label">Piano</h1>
                 </a>
 
-                <a class="product-showcase guitar" href="#">
+                <a class="product-showcase guitar" href="guitar.php">
                     <img class="product-showcase-background" src="images/frontpage_images/guitar-background.jpg">
                     <h1 class="product-showcase-label">Guitar</h1>
                 </a>
 
-                <a class="product-showcase violin" href="#">
+                <a class="product-showcase violin" href="violin.php">
                     <img class="product-showcase-background" src="images/frontpage_images/violin-background.jpg">
                     <h1 class="product-showcase-label">Violin</h1>
                 </a>
