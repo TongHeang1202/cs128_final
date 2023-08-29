@@ -17,7 +17,7 @@
 
         <div class="topnav-right">
             <a id="shopping-cart" href="#"><img src="images/shopping-cart.png"></a>
-            <a id="sign-in" href="#">Sign In</a>
+            <a id="sign-in" href="login.php">Sign In</a>
             <a id="register" href="#">Register</a>
         </div>
     </div>
