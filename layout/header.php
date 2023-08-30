@@ -11,13 +11,13 @@
             <a id="piano" href="./piano.php">Piano</a>
             <a id="guitar" href="guitar.php">Guitar</a>
             <a id="violin" href="violin.php">Violin</a>
-            <a id="about" href="#">About</a>
-            <a id="support" href="#">Support</a>
+            <a id="about" href="about.php">About</a>
+            <a id="support" href="support.php">Support</a>
         </div>
 
         <div class="topnav-right">
-            <a id="shopping-cart" href="#"><img src="images/shopping-cart.png"></a>
+            <a id="shopping-cart" href="shop.php"><img src="images/shopping-cart.png"></a>
             <a id="sign-in" href="login.php">Sign In</a>
-            <a id="register" href="#">Register</a>
+            <a id="register" href="register.php">Register</a>
         </div>
     </div>
