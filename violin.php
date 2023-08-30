@@ -24,8 +24,12 @@
             for ($i = 0; $i < 10; $i++){
             ?>
                 <div class="product-showcase">
+                    <div class="product-showcase-name">PlaceHolder</div>
                     <img class="product-showcase-image" src="images/frontpage_images/violin-background.jpg">
-                    <div class="product-showcase-tag"><span>PlaceHolder</span></div>
+                    <div class="product-showcase-tag">
+                        <span>$0.00</span>
+                        <img class="add-to-cart" src="images/shopping-cart.png">
+                    </div>
                 </div>
             <?php
             }
