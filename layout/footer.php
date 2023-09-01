@@ -21,8 +21,8 @@
             <!-- about -->
             <div class="footer-link-wrapper">
                 <div class="footer-header">About</div>
-                <a class="footer-link" href="#">Our Team</a>
-                <a class="footer-link" href="#">Features</a>
+                <a class="footer-link" href="about.php">Our Team</a>
+                <a class="footer-link" href="support.php">support</a>
             </div>
             <!-- end about -->
 
