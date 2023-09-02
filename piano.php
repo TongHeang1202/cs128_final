@@ -8,6 +8,19 @@
     <link href="css/menu.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <title>Piano</title>
+
+    <script>
+        function changeCart(id){
+            cartImg = document.getElementById("cart"+id);
+            imgName = cartImg.src;
+            if (imgName.search("images/shopping-cart.png") != -1){
+                cartImg.src = "images/shopping-cart-selected.png";
+            }
+            else {
+                cartImg.src = "images/shopping-cart.png";
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Open Navigation Bar Container -->
@@ -28,7 +41,9 @@
                     <img class="product-showcase-image" src="images/frontpage_images/piano-background.jpg">
                     <div class="product-showcase-tag">
                         <span>$0.00</span>
-                        <img class="add-to-cart" src="images/shopping-cart.png">
+                        <button class="add-to-cart" onclick="changeCart(<?php echo $i + 1;?>)">
+                            <img id="cart<?php echo $i + 1;?>" src="images/shopping-cart.png">
+                        </button>
                     </div>
                 </div>
             <?php

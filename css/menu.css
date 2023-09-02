@@ -51,21 +51,19 @@ body{
 
 .product-showcase {
     position: relative;
-    top: 0px;
     display: flex;
     justify-content: center;
     align-items: end;
-    width: 20%;
+    width: 250px;
     height: 350px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     border: 2px solid white;
     overflow: hidden;
     transition: 0.5s;
 }
 
 .product-showcase:hover{
-    top: -5px;
     cursor: pointer;
     border-radius: 0;
     border: 2px solid #111;
@@ -143,13 +141,27 @@ body{
 }
 
 .add-to-cart {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    visibility: hidden;
+}
+
+.add-to-cart:hover{
+    cursor: pointer;
+}
+
+.add-to-cart img {
     position: relative;
-    top: 0;
     width: 25px;
     height: 25px;
+    visibility: visible;
     transition: 0.5s;
 }
 
-.add-to-cart:hover {
-    top: -5px;
+.add-to-cart:hover img{
+    width: 28px;
+    height: 28px;
 }
