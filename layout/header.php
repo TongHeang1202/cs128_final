@@ -16,7 +16,7 @@
         </div>
 
         <div class="topnav-right">
-            <a id="shopping-cart" href="shop.php"><img src="images/shopping-cart.png"></a>
+            <a id="shopping-cart" href="cart-page.php"><img src="images/shopping-cart.png"></a>
             <a id="sign-in" href="login.php">Sign In</a>
             <a id="register" href="register.php">Register</a>
         </div>
