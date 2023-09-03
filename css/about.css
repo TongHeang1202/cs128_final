@@ -23,6 +23,15 @@ body {
     align-items: center;
     justify-content: space-around;
 }
+
+.about-main img {
+    transition: 0.5s ease-in-out;
+}
+
+.about-main img:hover {
+    transform: rotate(360deg);
+}
+
 .about-text h1{
     color: white;
     font-size: 80px;
