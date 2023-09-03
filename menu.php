@@ -1,3 +1,30 @@
+<?php 
+    // Connect to database
+    include("layout/connectDB.php");
+
+    $tbl_category = "SELECT * FROM `tbl_category`";
+    $q_category = mysqli_query($connection, $tbl_category);
+
+    $tbl_product = "SELECT * FROM `tbl_product`";
+
+    if (!isset($_GET["category"])){
+        die("This page does not exist");
+    }
+
+    $selected_category = $_GET["category"];
+    $not_valid_category = true;
+    while($category_list = mysqli_fetch_assoc($q_category)){
+        if ($selected_category == $category_list["category_name"]){
+            $not_valid_category = false;
+            break;
+        }
+    }
+    if ($not_valid_category){
+        die("This page does not exist");
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +34,7 @@
     <link href="css/nav.css" rel="stylesheet">
     <link href="css/menu.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
-    <title>Piano</title>
+    <title><?php echo strtoupper($_GET["category"])?></title>
 
     <script>
         function changeCart(id){
@@ -29,9 +56,9 @@
 
     <div class="container1">
         <img class="container-background" src="images/frontpage_images/showcase-banner-background.jpg">
-        <h1 class=container-title>PIANO</h1>
+        <h1 class="container-title"><?php echo strtoupper($_GET["category"])?></h1>
 
-        <div class=product-showcase-container>
+        <div class="product-showcase-container">
             <?php 
 
             for ($i = 0; $i < 10; $i++){

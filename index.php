@@ -35,17 +35,17 @@
                     <h1>Products</h1>
                 </div>
 
-                <a class="product-showcase piano" href="piano.php">
+                <a class="product-showcase piano" href="menu.php?category=piano">
                     <img class="product-showcase-background" src="images/frontpage_images/piano-background.jpg">
                     <h1 class="product-showcase-label">Piano</h1>
                 </a>
 
-                <a class="product-showcase guitar" href="guitar.php">
+                <a class="product-showcase guitar" href="menu.php?category=guitar">
                     <img class="product-showcase-background" src="images/frontpage_images/guitar-background.jpg">
                     <h1 class="product-showcase-label">Guitar</h1>
                 </a>
 
-                <a class="product-showcase violin" href="violin.php">
+                <a class="product-showcase violin" href="menu.php?category=violin">
                     <img class="product-showcase-background" src="images/frontpage_images/violin-background.jpg">
                     <h1 class="product-showcase-label">Violin</h1>
                 </a>
