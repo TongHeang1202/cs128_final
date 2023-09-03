@@ -7,6 +7,7 @@ body {
 
 .main-body {
     width: 100%;
+    min-height: calc(100vh - 350px);
 }
 
 .banner-container {

@@ -5,6 +5,7 @@ body {
 
 .about{
     width: 100%;
+    min-height: calc(100vh - 350px);
     padding: 78px 0px;
     background-image: url("images/frontpage_images/showcase-banner-background.jpg");
 }

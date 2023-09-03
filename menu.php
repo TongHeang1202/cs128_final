@@ -6,6 +6,7 @@
     $q_category = mysqli_query($connection, $tbl_category);
 
     $tbl_product = "SELECT * FROM `tbl_product`";
+    $q_product = mysqli_query($connection, $tbl_product);
 
     if (!isset($_GET["category"])){
         die("This page does not exist");
@@ -61,13 +62,13 @@
         <div class="product-showcase-container">
             <?php 
 
-            for ($i = 0; $i < 10; $i++){
+            while ($product = mysqli_fetch_assoc($q_product)){
             ?>
                 <div class="product-showcase">
-                    <div class="product-showcase-name">PlaceHolder</div>
-                    <img class="product-showcase-image" src="images/frontpage_images/piano-background.jpg">
+                    <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
+                    <img class="product-showcase-image" src="<?php echo "images/" . $product["product_image"]; ?>">
                     <div class="product-showcase-tag">
-                        <span>$0.00</span>
+                        <span><?php echo "$" . $product["product_price"]; ?></span>
                         <button class="add-to-cart" onclick="changeCart(<?php echo $i + 1;?>)">
                             <img id="cart<?php echo $i + 1;?>" src="images/shopping-cart.png">
                         </button>
