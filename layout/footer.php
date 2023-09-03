@@ -12,9 +12,9 @@
             <!-- product -->
             <div class="footer-link-wrapper">
                 <div class="footer-header">Products</div>
-                <a class="footer-link" href="./piano.php">Piano</a>
-                <a class="footer-link" href="guitar.php">Guitar</a>
-                <a class="footer-link" href="violin.php">Violin</a>
+                <a class="footer-link" href="menu.php?category=piano">Piano</a>
+                <a class="footer-link" href="menu.php?category=guitar">Guitar</a>
+                <a class="footer-link" href="menu.php?category=violin">Violin</a>
             </div>
             <!-- end product -->
 

@@ -13,10 +13,12 @@
     }
 
     $selected_category = $_GET["category"];
+    $category_id = 0;
     $not_valid_category = true;
     while($category_list = mysqli_fetch_assoc($q_category)){
         if ($selected_category == $category_list["category_name"]){
             $not_valid_category = false;
+            $category_id = $category_list["category_id"];
             break;
         }
     }
@@ -64,6 +66,11 @@
 
             while ($product = mysqli_fetch_assoc($q_product)){
             ?>
+                <?php
+                if ($product["category_id"] != $category_id){
+                    continue;
+                }
+                ?>
                 <div class="product-showcase">
                     <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
                     <img class="product-showcase-image" src="<?php echo "images/" . $product["product_image"]; ?>">
