@@ -70,17 +70,18 @@
                 if ($product["category_id"] != $category_id){
                     continue;
                 }
+                $product_id = $product["product_id"];
                 ?>
-                <div class="product-showcase">
+                <a class="product-showcase" href="<?php echo "product.php?id=" . $product["product_id"]; ?>">
                     <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
                     <img class="product-showcase-image" src="<?php echo "images/" . $product["product_image"]; ?>">
                     <div class="product-showcase-tag">
                         <span><?php echo "$" . $product["product_price"]; ?></span>
-                        <button class="add-to-cart" onclick="changeCart(<?php echo $i + 1;?>)">
-                            <img id="cart<?php echo $i + 1;?>" src="images/shopping-cart.png">
+                        <button class="add-to-cart" onclick="changeCart(<?php echo $product_id;?>)">
+                            <img id="cart<?php echo $product_id;?>" src="images/shopping-cart.png">
                         </button>
                     </div>
-                </div>
+                </a>
             <?php
             }
             

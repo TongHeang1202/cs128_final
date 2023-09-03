@@ -1,0 +1,111 @@
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    background-color: black;
+}
+.container1 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: calc(100vh - 350px);
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.container-background {
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    z-index: 0;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 50px;
+    width: 900px;
+    height: 500px;
+    margin: 50px 0;
+    background-color: #ddd;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 100%;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    height: 350px;
+    padding: 25px;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #777;
+}
+
+.add-to-cart {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.add-to-cart button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.amount-in-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    background-color: #bbb;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.amount-in-cart button {
+    display: flex;
+    align-items: center;
+    width: 50px;
+    border-radius: 0;
+}
+
+.add-to-cart button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}
