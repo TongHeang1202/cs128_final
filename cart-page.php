@@ -20,12 +20,11 @@
     <div class="main-body">
 
         <div class="column-class">
-            <h3>image</h3>
-            <h3>Name</h3>
-            <h3>Price</h3>
-            <h3>Quantity</h3>
-            <h3>Total Price</h3>
-
+            <h3 style="width:100px; display:block;">Image</h3>
+            <h3 style="width:300px; display:block;">Name</h3>
+            <h3 style="width:100px;">Price</h3>
+            <h3 style="width:100px;">Quantity</h3>
+            <h3 style="width:100px;"></h3>
         </div>
 
         <?php 
@@ -33,15 +32,20 @@
         for ($i = 0; $i < 5; $i++){
         ?>
             <div class="products">
-                <img class="product-image" src="images/frontpage_images/piano-background.jpg">
-                <h1 class="product-name">PlaceHolder</h1>
+                <div class="product-image">
+                    <img src="images/frontpage_images/piano-background.jpg">
+                </div>
+                <div class="product-name">
+                    <h1>PlaceHolder</h1>
+                    <p>placeholder</p>
+                </div>
                 <h1 class="product-price">$0.00</h1>
                 <div class="product-quantity">
                     <button class="quantity-remove">-</button>
                     <h1 class="quantity">0</h1>
                     <button class="quantity-add">+</button>
                 </div>
-                <h1 class="product-price-total">$0.00</h1>
+                <div class="remove-button">Remove</div>
             </div>
         <?php
         }
