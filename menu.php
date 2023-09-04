@@ -74,7 +74,7 @@
                 ?>
                 <a class="product-showcase" href="<?php echo "product.php?id=" . $product["product_id"]; ?>">
                     <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
-                    <img class="product-showcase-image" src="<?php echo "images/" . $product["product_image"]; ?>">
+                    <img class="product-showcase-image" src="<?php echo $product["product_image"]; ?>">
                     <div class="product-showcase-tag">
                         <span><?php echo "$" . $product["product_price"]; ?></span>
                         <button class="add-to-cart" onclick="changeCart(<?php echo $product_id;?>)">

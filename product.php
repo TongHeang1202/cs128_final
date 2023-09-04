@@ -17,7 +17,10 @@
             $product_id = $product_list["product_id"];
             $product_name = $product_list["product_name"];
             $product_description = $product_list["product_description"];
+            $product_rating = $product_list["rating"];
+            $product_rating_count = $product_list["rating_count"];
             $product_price = $product_list["product_price"];
+            $product_quantity= $product_list["product_quantity"];
             $product_image = $product_list["product_image"];
             break;
         }
@@ -48,17 +51,23 @@
         <img class="container-background" src="images/frontpage_images/showcase-banner-background.jpg">
         <div class="product-container">
             <div class="product-image">
-                <img src="<?php echo "images/" . $product_image;?>">
+                <img src="<?php echo $product_image;?>">
             </div>
 
             <div class="product-info">
                 <div class="product-title">
                     <h1><?php echo $product_name; ?></h1>
-                    <p><?php echo $product_name; ?></p>
+                    <p><?php echo $product_description; ?></p>
                 </div>
                 
-                <h2><?php echo "$" . $product_price; ?></h2>
-                <h2>In Stock: 0</h2>
+                <div class="product-rating">
+                    <img src="images/star.png">
+                    <?php echo $product_rating . " / 5.0 "; ?>
+                    <span><?php echo " (" . $product_rating_count . ")"; ?></span>
+                </div>
+                
+                <h2 class="product-price"><?php echo "$" . $product_price; ?></h2>
+                <h2>In Stock: <?php echo $product_quantity; ?></h2>
 
                 <div class="add-to-cart">
                     <div class="amount-in-cart">

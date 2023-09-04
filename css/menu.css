@@ -28,9 +28,9 @@ body{
     justify-content: center;
     align-items: center;
     width: 150px;
-    height: 70px;
+    height: 50px;
     border: 2px solid #111;
-    border-radius: 20px;
+    border-radius: 7px;
     text-align: center;
     background-color: white;
     color: #111;
@@ -86,6 +86,7 @@ body{
     color: white;
     font-size: 16px;
     font-weight: bold;
+    text-align: center;
     opacity: 0.7;
     transition: 0.5s;
     z-index: 1;
@@ -94,7 +95,6 @@ body{
 .product-showcase:hover .product-showcase-name {
     height: 11%;
     background-color: #111;
-    font-size: 20px;
     opacity: 0.9;
 }
 
@@ -102,8 +102,8 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80%;
-    height: 80%;
+    max-width: 80%;
+    max-height: 80%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
     transition: 0.5s;
@@ -111,8 +111,8 @@ body{
 }
 
 .product-showcase:hover .product-showcase-image {
-    width: 75%;
-    height: 75%;
+    max-width: 75%;
+    max-height: 75%;
 }
 
 .product-showcase-tag {
@@ -135,8 +135,8 @@ body{
 }
 
 .product-showcase-tag span {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 22px;
+    font-weight: 400;
     color: white;
     letter-spacing: 1px;
 }
