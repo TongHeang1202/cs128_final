@@ -52,7 +52,7 @@
             </div>
 
             <div class="product-info">
-                <div>
+                <div class="product-title">
                     <h1><?php echo $product_name; ?></h1>
                     <p><?php echo $product_name; ?></p>
                 </div>

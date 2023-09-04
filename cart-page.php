@@ -18,6 +18,16 @@
 
     <!-- Open Main Body Container -->
     <div class="main-body">
+
+        <div class="column-class">
+            <h3>image</h3>
+            <h3>Name</h3>
+            <h3>Price</h3>
+            <h3>Quantity</h3>
+            <h3>Total Price</h3>
+
+        </div>
+
         <?php 
 
         for ($i = 0; $i < 5; $i++){
