@@ -15,7 +15,6 @@
 </head>
 
 <body>
-
     <div class="sidenav">
         <div class="login-main-text">
             <h2>Ear Candy</h2>
@@ -26,17 +25,18 @@
     <div class="main">
         <div class="col-md-6 col-sm-12">
             <div class="login-form">
-                <form method="POST" action="login.php">
+                <form method="POST" action="register.php">
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="text" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" name= "email" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" name= "password" placeholder="Password">
                     </div>
+                    <a href="index.php" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Home</a>
                     <button type="submit" class="btn btn-black">Login</button>
-                    <button type="submit" class="btn btn-secondary">Register</button>
+                    <a href="register.php" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Register</a>
                 </form>
             </div>
         </div>
