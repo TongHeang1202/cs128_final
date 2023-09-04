@@ -41,6 +41,24 @@
     <link href="css/product.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <title><?php echo $product_name;?></title>
+
+    <script>
+        quantity = 0;
+        stock = <?php echo $product_quantity ?>;
+        function add_quantity(){
+            if(quantity < stock){
+            quantity++;
+            document.getElementById("amount-in-cart").innerHTML = quantity;
+            }
+        }
+
+        function subtract_quantity(){
+            if(quantity > 0){
+                quantity--;
+                document.getElementById("amount-in-cart").innerHTML = quantity;
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Open Navigation Bar Container -->
@@ -71,9 +89,9 @@
 
                 <div class="add-to-cart">
                     <div class="amount-in-cart">
-                        <button>-</button>
-                        0
-                        <button>+</button>
+                        <button onclick="subtract_quantity()">-</button>
+                        <span id="amount-in-cart">0</span>
+                        <button onclick="add_quantity()">+</button>
                     </div>
                     <button>Add to Cart</button>
                 </div>
