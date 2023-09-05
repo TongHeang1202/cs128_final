@@ -162,3 +162,24 @@ body{
     cursor: pointer;
     background-color: #ddd;
 }
+
+.sign-in-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 300;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+    transition: 0.5s ease;
+}
+
+.sign-in-button:hover {
+    cursor: pointer;
+    background-color: #ddd;
+}

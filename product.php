@@ -32,15 +32,18 @@
     $_SESSION["product_id"] = $product_id;
     
     // check if user has put it in cart already
-    $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `product_id` = '$product_id'";
-    $q_cart = mysqli_query($connection, $tbl_cart);
-    $quantity_in_cart = 0;
-    if(mysqli_num_rows($q_cart) > 0){
-        while ($row = mysqli_fetch_assoc($q_cart)){
-            if ($row["user_id"] == $_SESSION["user_id"]){
-                $quantity_in_cart = $row["cart_quantity"];
+    if (isset($_SESSION["user_id"])){
+        $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `product_id` = '$product_id'";
+        $q_cart = mysqli_query($connection, $tbl_cart);
+        $quantity_in_cart = 0;
+        if(mysqli_num_rows($q_cart) > 0){
+            while ($row = mysqli_fetch_assoc($q_cart)){
+                if ($row["user_id"] == $_SESSION["user_id"]){
+                    $quantity_in_cart = $row["cart_quantity"];
+                }
             }
         }
+
     }
 
 
@@ -104,16 +107,27 @@
                 <h2 class="product-price"><?php echo "$" . $product_price; ?></h2>
                 <h2>In Stock: <?php echo $product_quantity; ?></h2>
 
-                <div class="add-to-cart">
-                    <div class="amount-in-cart">
-                        <input style="display: none;" type="number" name="quantity" id="quantity">
+                <?php 
+                if (isset($_SESSION["user_id"])){
+                ?>
+                    <div class="add-to-cart">
+                        <div class="amount-in-cart">
+                            <input style="display: none;" type="number" name="quantity" id="quantity">
 
-                        <button type="button" onclick="subtract_quantity()">-</button>
-                        <span id="amount-in-cart"><?php echo $quantity_in_cart; ?></span>
-                        <button type="button" onclick="add_quantity()">+</button>
+                            <button type="button" onclick="subtract_quantity()">-</button>
+                            <span id="amount-in-cart"><?php echo $quantity_in_cart; ?></span>
+                            <button type="button" onclick="add_quantity()">+</button>
+                        </div>
+                        <button type="submit">Add to Cart</button>
                     </div>
-                    <button type="submit">Add to Cart</button>
-                </div>
+                <?php
+                }
+                else {
+                ?>
+                    <a class="sign-in-button" href="login.php">Sign In</a>
+                <?php 
+                }
+                ?>
             </div>
             
         </form>
