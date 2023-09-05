@@ -1,3 +1,11 @@
+<?php 
+    // Connect to database
+    include("layout/connectDB.php");
+
+    $tbl_cart = "SELECT * FROM `tbl_cart`";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +17,24 @@
     <link href="css/cart-page.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <title>Ear Candy</title>
+
+    <script>
+        quantity = 0;
+        stock = <?php echo $product_quantity ?>;
+        function add_quantity(){
+            if(quantity < stock){
+            quantity++;
+            document.getElementById("amount-in-cart").innerHTML = quantity;
+            }
+        }
+
+        function subtract_quantity(){
+            if(quantity > 0){
+                quantity--;
+                document.getElementById("amount-in-cart").innerHTML = quantity;
+            }
+        }
+    </script>
 </head>
 
 <body>

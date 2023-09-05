@@ -4,7 +4,7 @@
 
     $tbl_product = "SELECT * FROM `tbl_product`";
     $q_product = mysqli_query($connection, $tbl_product);
-
+    
     if (!isset($_GET["id"])){
         die("This page does not exist");
     }
@@ -29,6 +29,21 @@
         die("This page does not exist");
     }
     
+    $_SESSION["product_id"] = $product_id;
+    
+    // check if user has put it in cart already
+    $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `product_id` = '$product_id'";
+    $q_cart = mysqli_query($connection, $tbl_cart);
+    $quantity_in_cart = 0;
+    if(mysqli_num_rows($q_cart) > 0){
+        while ($row = mysqli_fetch_assoc($q_cart)){
+            if ($row["customer_id"] == $_SESSION["customer_id"]){
+                $quantity_in_cart = $row["cart_quantity"];
+            }
+        }
+    }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +58,13 @@
     <title><?php echo $product_name;?></title>
 
     <script>
-        quantity = 0;
+        quantity = <?php echo $quantity_in_cart; ?>;
         stock = <?php echo $product_quantity ?>;
         function add_quantity(){
             if(quantity < stock){
-            quantity++;
-            document.getElementById("amount-in-cart").innerHTML = quantity;
+                quantity++;
+                document.getElementById("amount-in-cart").innerHTML = quantity;
+                document.getElementById("quantity").value = quantity;
             }
         }
 
@@ -56,6 +72,7 @@
             if(quantity > 0){
                 quantity--;
                 document.getElementById("amount-in-cart").innerHTML = quantity;
+                document.getElementById("quantity").value = quantity;
             }
         }
     </script>
@@ -67,7 +84,7 @@
 
     <div class="container1">
         <img class="container-background" src="images/frontpage_images/showcase-banner-background.jpg">
-        <div class="product-container">
+        <form class="product-container" action="layout/add-to-cart.php" method="POST">
             <div class="product-image">
                 <img src="<?php echo $product_image;?>">
             </div>
@@ -89,15 +106,17 @@
 
                 <div class="add-to-cart">
                     <div class="amount-in-cart">
-                        <button onclick="subtract_quantity()">-</button>
-                        <span id="amount-in-cart">0</span>
-                        <button onclick="add_quantity()">+</button>
+                        <input style="display: none;" type="number" name="quantity" id="quantity">
+
+                        <button type="button" onclick="subtract_quantity()">-</button>
+                        <span id="amount-in-cart"><?php echo $quantity_in_cart; ?></span>
+                        <button type="button" onclick="add_quantity()">+</button>
                     </div>
-                    <button>Add to Cart</button>
+                    <button type="submit">Add to Cart</button>
                 </div>
             </div>
             
-        </div>
+        </form>
     </div>
     
     <!-- Put Footer Below This -->

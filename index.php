@@ -1,3 +1,8 @@
+<?php 
+    // Connect to database
+    include("layout/connectDB.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

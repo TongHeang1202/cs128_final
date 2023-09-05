@@ -91,6 +91,11 @@ body {
     width: 100px;
 }
 
+.quantity {
+    font-size: 30px;
+    font-weight: 500;
+}
+
 .product-quantity button {
     display: flex;
     justify-content: center;
