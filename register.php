@@ -1,58 +1,53 @@
 <?php
-// set to null
-$nameError = "";
-$emailError = "";
-$passwordError = "";
-$passwordRepeatError = "";
+// Database Connection
+include("layout/connectDB.php");
 
-$name = $email= $password = $passwordRepeat = "";
+    //define variables and set value empty
+    $nameErr = $emailErr = $pwdErr = $pwdcErr = '';
+    $name = $email = $pwd = $pwdc = '';
 
-// submit 
-  if(isset($_POST["submit"]))
-  {
-    // check name
-    if(empty($_POST["name"]))
-    {
-      $nameError = "Name is Requred";
-    }
-    else
-    {
-      $name = input($_POST["name"]);
-    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])){
+        if (empty($name)){
+            $nameErr = 'name is required!';
+        }else{
+            $name = validate($_POST['fullname']);
+            //check if name format is correct
+            if (!preg_match("/^[a-zA-Z ]*$/",$name)){
+                $nameErr = 'only letters and white space allowed!';
+            }
+        }
 
-    // check email 
-    if (empty($_POST["email"])) {		
-      $emailError = "Email is required";		
-    } 
-    else {
-      $email = input($_POST["email"]);		
- 
-         // check that the e-mail address is well-formed		
-         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
-           $emailError = "Invalid email format";		
-       }	
+        if (empty($email)){
+            $emailErr = 'email is required!';
+        }else{
+            $email = validate($_POST['email']);
+            //check if the email format is correct
+            if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $emailErr = 'email format is not correct!';
+            }
+        }
+
+        if (empty($pwd)){
+            $pwdErr = 'password is required!';
+        }else{
+            $pwd = validate($_POST['password']);
+            //check if the password format is correct
+        }
+
+        if (empty($pwdc)){
+            $pwdcErr = 'password is not confirmed!';
+        }else{
+            $pwdc = validate($_POST['pwdc']);
+            //check if the password is matched or not
     }
-    // check password
-    if(strlen($password)<8)
-    {
-      $passwordError = "Password must be at least 8 characters long";
     }
-    else{
-      $password = $_POST['password'];
-    }
-    // check repeat password
-    if($password!==$passwordRepeat)
-    {
-      $passwordError = "Password does not match";
-    }
-  }
-  function input($data)
-  {
+  function validate($data) {
     $data = trim($data);
-    $data = stripcslashes($data);
+    $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-  }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,11 +62,6 @@ $name = $email= $password = $passwordRepeat = "";
     <!-- style -->
     <title>login</title>
 
-    <style>
-      .error {
-        color: red;
-      }
-    </style>
 </head>
 
 <body>
@@ -86,35 +76,35 @@ $name = $email= $password = $passwordRepeat = "";
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
+              
               <form method="POST" action="register.php">
 
                 <div class="form-outline mb-4">
                   <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" name="fullname" for="form3Example1cg">Your Name</label>
-                  <div class="error"><?php echo $nameError;?></div>
+                  <label class="form-label" name="fullname" for="form3Example1cg" placholder="Name">Your Name</label>
+                  <span class="text-danger">*<?php echo $nameErr;?></span>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" name="email" for="form3Example3cg">Your Email</label>
-                  <span class = "error">*<?php echo $emailError;?></span>
+                  <label class="form-label" name="email" for="form3Example3cg" placholder="Email">Your Email</label>
+                  <span class="text-danger">*<?php echo $emailErr;?></span>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" name="password" for="form3Example4cg">Password</label>
-                  <span class = "error">* <?php echo $passwordError;?></span>
+                  <label class="form-label" name="password" for="form3Example4cg" placholder="Password">Password</label>
+                  <span class="text-danger">*<?php echo $pwdErr;?></span>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
-                  <label class="form-label" name="repeat_password" for="form3Example4cdg">Repeat your password</label>
-                  <span class = "error">* <?php echo $passwordRepeatError;?></span>
+                  <label class="form-label" name="pwdc" for="form3Example4cdg" placholder="Repeat your password">Repeat your password</label>
+                  <span class="text-danger">*<?php echo $pwdcErr;?></span>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="submit"
-                    class="btn btn-success btn-block btn-lg bg-primary text-body">Confirm</button>
+                  <button type="submit" class="btn btn-success btn-block btn-lg bg-primary text-body" name = "register">Confirm</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="login.php"

@@ -1,3 +1,33 @@
+<?php
+    //define variables with empty values
+    $emailErr = $pwdErr = '';
+    $email = $pwd = '';
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
+        if (empty($_POST['email'])){
+            $emailErr = 'Email is required!';
+        }else{
+            $email = validate($_POST['email']);
+            //check if email address is well form
+            if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+                $emailErr = 'Invalid email format!';
+            }
+        }
+
+        if (empty($_POST['password'])){
+            $pwdErr = 'Password is required!';
+        }else{
+            $pwd = validate($_POST['pwd']);
+        }
+    }
+
+    function validate($data){
+        $data = trim($data);
+        $data = stripcslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
