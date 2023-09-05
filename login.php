@@ -1,33 +1,3 @@
-<?php
-    //define variables with empty values
-    $emailErr = $pwdErr = '';
-    $email = $pwd = '';
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])){
-        if (empty($_POST['email'])){
-            $emailErr = 'Email is required!';
-        }else{
-            $email = validate($_POST['email']);
-            //check if email address is well form
-            if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
-                $emailErr = 'Invalid email format!';
-            }
-        }
-
-        if (empty($_POST['password'])){
-            $pwdErr = 'Password is required!';
-        }else{
-            $pwd = validate($_POST['pwd']);
-        }
-    }
-
-    function validate($data){
-        $data = trim($data);
-        $data = stripcslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,6 +15,28 @@
 </head>
 
 <body>
+<?php
+        if (isset($_POST["login"])) {
+           $email = $_POST["email"];
+           $password = $_POST["password"];
+            require_once "layout/connectDB.php";
+            $sql = "SELECT * FROM `tbl_user` WHERE email = '$email'";
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+            if ($user) {
+                if (password_verify($password, $user["password"])) {
+                    session_start();
+                    $_SESSION["user"] = "yes";
+                    header("Location: index.php");
+                    die();
+                }else{
+                    echo "<div class='alert alert-danger'>Password does not match</div>";
+                }
+            }else{
+                echo "<div class='alert alert-danger'>Email does not match</div>";
+            }
+        }
+        ?>
     <div class="sidenav">
         <div class="login-main-text">
             <h2>Ear Candy</h2>
@@ -65,7 +57,7 @@
                         <input type="password" class="form-control" name= "password" placeholder="Password">
                     </div>
                     <a href="index.php" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Home</a>
-                    <button type="submit" class="btn btn-black">Login</button>
+                    <button type="submit" name = "login" class="btn btn-black">Login</button>
                     <a href="register.php" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Register</a>
                 </form>
             </div>

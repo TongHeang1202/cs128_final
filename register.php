@@ -1,66 +1,56 @@
 <?php
+
     //define variables and set value empty
     $nameErr = $emailErr = $pwdErr = $pwdcErr = '';
-    $name = $email = $pwd = $pwdc = '';
 
+    $error = false;
+
+    // connect to db
+    include("layout/connectDB.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
-      
-      include("layout/connectDB.php");
-      $sql = "INSERT INTO `tbl_user` (user_name, user_password, usere_email) VALUES ('$name', '$email', '$password')";
-      $rs = mysqli_query($connection, $sql);
+      $name = $_POST['fullname'];
+      $email = $_POST['email'];
+      $pwd = $_POST['password'];
+      $pwdc = $_POST['pwdc'];
 
-      if($rs)
-      {
-        echo "Contact Records Inserted";
-      }
-
-      // Form validation
-      // name validation
-      if (empty($name)){
-            $nameErr = 'name is required!';
-        }else{
-            $name = validate($_POST['fullname']);
-            //check if name format is correct
-            if (!preg_match("/^[a-zA-Z ]*$/",$name)){
-                $nameErr = 'only letters and white space allowed!';
-            }
-        }
-
-        // email validation
-        if (empty($email)){
-            $emailErr = 'email is required!';
-        }else{
-            $email = validate($_POST['email']);
-            //check if the email format is correct
-            if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
-                $emailErr = 'email format is not correct!';
-            }
-        }
-
-        // password validation
-        if (empty($pwd)){
-            $pwdErr = 'password is required!';
-        }else{
-            $pwd = validate($_POST['[psd]']);
-            //check if the password format is correct
-        }
-
-        //repeat password
-        if (empty($pwdc)){
-            $pwdcErr = 'password is not confirmed!';
-        }else{
-            $pwdc = validate($_POST['pwdc']);
-            //check if the password is matched or not
+      if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+        $nameErr = "Name must contain only alphabets and space";
     }
-  }
-  function validate($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Please Enter Valid Email ID";
+    }
+    if(strlen($pwd) < 6) {
+        $pwdErr = "Password must be minimum of 6 characters";
+    }      
+    if($pwd != $pwdc) {
+        $pwdcErr = "Password and Confirm Password doesn't match";
+    }
+    
+          // insert into DB
+          if(!$error)
+          {
+            $sql = "INSERT INTO `tbl_user` (user_name, user_email, user_password) VALUES ('$name', '$email', '$pwd')";
+            $rs = mysqli_query($connection, $sql);
+            if($rs)
+            {
+              echo "Contact Records Inserted";
+            }
+          }
+         else {
+           echo "Error: " . $sql . "" . mysqli_error($connection);
+        }
+        }
+        function validate($data) {
+          $data = trim($data);
+          $data = stripslashes($data);
+          $data = htmlspecialchars($data);
     return $data;
-}
+        }
+
+    
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,31 +78,30 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              
+              <span class= "text-danger"><?php $error?></span>
               <form method="POST" action="register.php">
-
+  
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <input type="text" id="form3Example1cg"  name="fullname" class="form-control form-control-lg" />
                   <label class="form-label" name="fullname" for="form3Example1cg" placholder="Name">Your Name</label>
-                  <span class="text-danger">*<?php echo $nameErr;?></span>
+    
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email" id="form3Example3cg" name="email" class="form-control form-control-lg" />
                   <label class="form-label" name="email" for="form3Example3cg" placholder="Email">Your Email</label>
-                  <span class="text-danger">*<?php echo $emailErr;?></span>
+               
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" name="psd" for="form3Example4cg" placholder="Password">Password</label>
-                  <span class="text-danger">*<?php echo $pwdErr;?></span>
+                  <input type="password" id="form3Example4cg"  name="password"class="form-control form-control-lg" />
+                  <label class="form-label" name="password" for="form3Example4cg" placholder="Password">Password</label>
+              
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <input type="password" id="form3Example4cdg" name="pwdc" class="form-control form-control-lg" />
                   <label class="form-label" name="pwdc" for="form3Example4cdg" placholder="Repeat your password">Repeat your password</label>
-                  <span class="text-danger">*<?php echo $pwdcErr;?></span>
                 </div>
 
                 <div class="d-flex justify-content-center">
