@@ -1,9 +1,11 @@
 <?php 
     // Connect to database
     include("layout/connectDB.php");
+    $customer = $_SESSION["customer_id"];
 
-    $tbl_cart = "SELECT * FROM `tbl_cart`";
-
+    $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `customer_id` = '$customer'";
+    $q_cart = mysqli_query($connection, $tbl_cart);
+    
 ?>
 
 <!DOCTYPE html>
@@ -16,22 +18,22 @@
     <link href="css/nav.css" rel="stylesheet">
     <link href="css/cart-page.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
-    <title>Ear Candy</title>
+    <title>Cart</title>
 
     <script>
-        quantity = 0;
-        stock = <?php echo $product_quantity ?>;
-        function add_quantity(){
+        function add_quantity(id, stock){
+            quantity = parseInt(document.getElementById("quantity" + id).innerHTML);
             if(quantity < stock){
             quantity++;
-            document.getElementById("amount-in-cart").innerHTML = quantity;
+            document.getElementById("quantity" + id).innerHTML = quantity;
             }
         }
 
-        function subtract_quantity(){
+        function subtract_quantity(id,stock){
+            quantity = parseInt(document.getElementById("quantity" + id).innerHTML);
             if(quantity > 0){
                 quantity--;
-                document.getElementById("amount-in-cart").innerHTML = quantity;
+                document.getElementById("quantity" + id).innerHTML = quantity;
             }
         }
     </script>
@@ -55,21 +57,28 @@
 
         <?php 
 
-        for ($i = 0; $i < 5; $i++){
+        while ($cart_item = mysqli_fetch_assoc($q_cart)){
+            $product_id = $cart_item["product_id"];
+            $tbl_product = "SELECT * FROM `tbl_product` WHERE `product_id` = $product_id";
+            $q_product = mysqli_query($connection, $tbl_product);
+            $product = mysqli_fetch_assoc($q_product);
+            $product_stock = $product["product_quantity"];
+
+            if ($cart_item["cart_quantity"] == 0) continue;
         ?>
             <div class="products">
                 <div class="product-image">
-                    <img src="images/frontpage_images/piano-background.jpg">
+                    <img src="<?php echo $product["product_image"]; ?>">
                 </div>
                 <div class="product-name">
-                    <h1>PlaceHolder</h1>
-                    <p>placeholder</p>
+                    <h1><?php echo $product["product_name"]; ?></h1>
+                    <p><?php echo $product["product_description"]; ?></p>
                 </div>
-                <h1 class="product-price">$0.00</h1>
+                <h1 class="product-price"><?php echo "$" . $product["product_price"]; ?></h1>
                 <div class="product-quantity">
-                    <button class="quantity-remove">-</button>
-                    <h1 class="quantity">0</h1>
-                    <button class="quantity-add">+</button>
+                    <button class="quantity-remove" onclick="subtract_quantity(<?php echo $product_id . ',' . $product_stock;?>)">-</button>
+                    <h1 id="quantity<?php echo $product_id;?>" class="quantity"  ><?php echo $cart_item["cart_quantity"]; ?></h1>
+                    <button class="quantity-add" onclick="add_quantity(<?php echo $product_id . ',' . $product_stock;?>)">+</button>
                 </div>
                 <div class="remove-button">Remove</div>
             </div>
