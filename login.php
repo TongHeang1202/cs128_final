@@ -1,3 +1,60 @@
+<?php
+
+include("layout/connectDB.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $error = false; 
+    $email =$_POST['email'];
+    $pwd = $_POST['password'];
+
+    if (empty($_POST['email'])){
+        $emailErr = 'Email is required!';
+        $error =true;
+    }
+    else
+    {
+        $email = validate($_POST['email']);
+        
+        //check if email address is well form
+        if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            $emailErr = 'Invalid email format!';
+        }
+    }
+    if (empty($_POST['pwd'])){
+        $pwdErr = 'Password is required!';
+        $error =true;
+    }
+    else{
+        $pwd = validate($_POST['pwd']);
+    }
+    
+    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= $email AND `user_password` = $pwd";
+    $q_user = mysqli_query($connection, $tbl_user);
+
+    if(mysqli_num_rows($q_user)>0)
+    {
+        $customer = mysqli_fetch_assoc($q_user);
+    }
+    else
+    {
+        $error = true;
+    }
+
+    if(!$error)
+    {
+        $_SESSION[!"user_id"] = $customer["user_id"];
+        header("location: index.php");
+    }
+}
+
+function validate($data){
+    $data = trim($data);
+    $data = stripcslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +63,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap 4 -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0 .0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- style -->
@@ -15,28 +72,6 @@
 </head>
 
 <body>
-<?php
-        if (isset($_POST["login"])) {
-           $email = $_POST["email"];
-           $password = $_POST["password"];
-            require_once "layout/connectDB.php";
-            $sql = "SELECT * FROM `tbl_user` WHERE email = '$email'";
-            $result = mysqli_query($conn, $sql);
-            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            if ($user) {
-                if (password_verify($password, $user["password"])) {
-                    session_start();
-                    $_SESSION["user"] = "yes";
-                    header("Location: index.php");
-                    die();
-                }else{
-                    echo "<div class='alert alert-danger'>Password does not match</div>";
-                }
-            }else{
-                echo "<div class='alert alert-danger'>Email does not match</div>";
-            }
-        }
-        ?>
     <div class="sidenav">
         <div class="login-main-text">
             <h2>Ear Candy</h2>
@@ -47,7 +82,7 @@
     <div class="main">
         <div class="col-md-6 col-sm-12">
             <div class="login-form">
-                <form method="POST" action="register.php">
+                <form method="POST" action="login.php">
                     <div class="form-group">
                         <label>Email Address</label>
                         <input type="text" class="form-control" name= "email" placeholder="Email">
