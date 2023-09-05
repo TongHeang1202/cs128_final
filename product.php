@@ -37,7 +37,7 @@
     $quantity_in_cart = 0;
     if(mysqli_num_rows($q_cart) > 0){
         while ($row = mysqli_fetch_assoc($q_cart)){
-            if ($row["customer_id"] == $_SESSION["customer_id"]){
+            if ($row["user_id"] == $_SESSION["user_id"]){
                 $quantity_in_cart = $row["cart_quantity"];
             }
         }

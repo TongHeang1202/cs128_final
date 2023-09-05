@@ -86,6 +86,7 @@
 }
 
 .topnav-right a:hover {
+    cursor: pointer;
     top: -3px;
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -99,4 +100,42 @@
 #shopping-cart img{
     width: 30px;
     height: 30px;
+}
+
+#account-icon {
+    width: 40%;
+}
+
+#account-icon img{
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
+}
+
+#account-icon button {
+    position: absolute;
+    display: none;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #111;
+    border: 0;
+    border-radius: 5px;
+}
+
+
+#account-icon button span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 60%;
+    background-color: rgb(201, 0, 0);
+    border-radius: 5px;
+}
+
+#account-icon button:hover span{
+    cursor: pointer;
+    background-color: rgb(131, 0, 0);
 }

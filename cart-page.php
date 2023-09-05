@@ -1,9 +1,12 @@
 <?php 
     // Connect to database
     include("layout/connectDB.php");
-    $customer = $_SESSION["customer_id"];
 
-    $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `customer_id` = '$customer'";
+    if (!isset($_SESSION["user_id"])) header("location: index.php");
+
+    $customer = $_SESSION["user_id"];
+
+    $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `user_id` = '$customer'";
     $q_cart = mysqli_query($connection, $tbl_cart);
     
 ?>
