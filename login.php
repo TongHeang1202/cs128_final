@@ -29,23 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $pwd = validate($_POST['pwd']);
     }
     
-    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= $email AND `user_password` = $pwd";
+    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= '$email' AND `user_password` = '$pwd'";
     $q_user = mysqli_query($connection, $tbl_user);
-
-    if(mysqli_num_rows($q_user)>0)
+    if($customer = mysqli_fetch_assoc($q_user))
     {
-        $customer = mysqli_fetch_assoc($q_user);
+        $_SESSION["user_id"] = $customer["user_id"];
+        header("location: index.php");
     }
     else
     {
         $error = true;
     }
 
-    if(!$error)
-    {
-        $_SESSION[!"user_id"] = $customer["user_id"];
-        header("location: index.php");
-    }
 }
 
 function validate($data){
