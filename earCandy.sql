@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2023 at 03:02 PM
+-- Generation Time: Sep 05, 2023 at 03:23 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_cart` (
   `cart_id` int(10) NOT NULL,
   `cart_quantity` int(10) NOT NULL,
-  `customer_id` int(10) NOT NULL,
+  `user_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -54,20 +54,6 @@ INSERT INTO `tbl_category` (`category_id`, `category_name`, `category_descriptio
 (1, 'piano', 'black and white keys'),
 (2, 'guitar', 'strings you pluck make sound'),
 (3, 'violin', 'strings you bow make sound');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_customer`
---
-
-CREATE TABLE `tbl_customer` (
-  `customer_id` int(10) NOT NULL,
-  `first_name` varchar(40) NOT NULL,
-  `last_name` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL,
-  `phone` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -117,6 +103,19 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_description`, 
 (23, 'Eastar VL-34', 'Full Size Beginner Violin for Adults', 149.99, 27, 'images/violin/sql_violin7.jpeg', 0.00, 0, 3),
 (24, 'Kmise KN-24', 'Full Size Acoustic Violin 4/4', 79.99, 47, 'images/violin/sql_violin8.jpeg', 0.00, 0, 3);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `user_id` int(10) NOT NULL,
+  `user_name` varchar(40) NOT NULL,
+  `user_email` varchar(40) NOT NULL,
+  `user_password` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -126,7 +125,7 @@ INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_description`, 
 --
 ALTER TABLE `tbl_cart`
   ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `customer_id` (`user_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
@@ -136,17 +135,17 @@ ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_customer`
---
-ALTER TABLE `tbl_customer`
-  ADD PRIMARY KEY (`customer_id`);
-
---
 -- Indexes for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `test` (`category_id`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -165,16 +164,16 @@ ALTER TABLE `tbl_category`
   MODIFY `category_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_customer`
---
-ALTER TABLE `tbl_customer`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -184,7 +183,7 @@ ALTER TABLE `tbl_product`
 -- Constraints for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `tbl_customer` (`customer_id`),
+  ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tbl_user` (`user_id`),
   ADD CONSTRAINT `tbl_cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `tbl_product` (`product_id`);
 
 --
