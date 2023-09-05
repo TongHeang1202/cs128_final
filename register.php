@@ -1,13 +1,22 @@
 <?php
-// Database Connection
-include("layout/connectDB.php");
-
     //define variables and set value empty
     $nameErr = $emailErr = $pwdErr = $pwdcErr = '';
     $name = $email = $pwd = $pwdc = '';
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])){
-        if (empty($name)){
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+      
+      include("layout/connectDB.php");
+      $sql = "INSERT INTO `tbl_user` (user_name, user_password, usere_email) VALUES ('$name', '$email', '$password')";
+      $rs = mysqli_query($connection, $sql);
+
+      if($rs)
+      {
+        echo "Contact Records Inserted";
+      }
+
+      // Form validation
+      // name validation
+      if (empty($name)){
             $nameErr = 'name is required!';
         }else{
             $name = validate($_POST['fullname']);
@@ -17,6 +26,7 @@ include("layout/connectDB.php");
             }
         }
 
+        // email validation
         if (empty($email)){
             $emailErr = 'email is required!';
         }else{
@@ -27,20 +37,22 @@ include("layout/connectDB.php");
             }
         }
 
+        // password validation
         if (empty($pwd)){
             $pwdErr = 'password is required!';
         }else{
-            $pwd = validate($_POST['password']);
+            $pwd = validate($_POST['[psd]']);
             //check if the password format is correct
         }
 
+        //repeat password
         if (empty($pwdc)){
             $pwdcErr = 'password is not confirmed!';
         }else{
             $pwdc = validate($_POST['pwdc']);
             //check if the password is matched or not
     }
-    }
+  }
   function validate($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -93,7 +105,7 @@ include("layout/connectDB.php");
 
                 <div class="form-outline mb-4">
                   <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
-                  <label class="form-label" name="password" for="form3Example4cg" placholder="Password">Password</label>
+                  <label class="form-label" name="psd" for="form3Example4cg" placholder="Password">Password</label>
                   <span class="text-danger">*<?php echo $pwdErr;?></span>
                 </div>
 
