@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 04, 2023 at 09:54 AM
+-- Generation Time: Sep 05, 2023 at 03:02 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -30,10 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_cart` (
   `cart_id` int(10) NOT NULL,
   `cart_quantity` int(10) NOT NULL,
-  `discount` int(10) NOT NULL,
-  `total` float(8,2) NOT NULL,
-  `date` date NOT NULL,
-  `order_details` int(10) NOT NULL,
   `customer_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -160,7 +156,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
