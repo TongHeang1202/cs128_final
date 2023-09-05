@@ -47,6 +47,7 @@ body {
 
 .product-image {
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 100px;
     height: 100%;
@@ -57,10 +58,19 @@ body {
     max-height: 100%;
     border-radius: 5px;
     border: solid 2px #111;
+    box-shadow: 5px 5px 5px #777;
 }
 
 .product-name {
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 280px;
+    height: 100%;
+    padding: 0 10px;
+    background-color: #bbb;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #777;
 }
 
 .product-name h1 {
@@ -69,7 +79,7 @@ body {
 }
 
 .product-name p {
-    color: #888;
+    color: #666;
     font-size: 14px;
     margin: 0;
 }
