@@ -1,13 +1,13 @@
 <?php
-
+// connect db
 include("layout/connectDB.php");
-
+// check if user clicked login
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
+    // assumer there's no error
     $error = false; 
     $email =$_POST['email'];
     $pwd = $_POST['password'];
-
+    // validating email...
     if (empty($_POST['email'])){
         $emailErr = 'Email is required!';
         $error =true;
@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $emailErr = 'Invalid email format!';
         }
     }
+    // validate password
     if (empty($_POST['pwd'])){
         $pwdErr = 'Password is required!';
         $error =true;
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     else{
         $pwd = validate($_POST['pwd']);
     }
-    
+    // checking if password and email matches to user in db
     $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= '$email' AND `user_password` = '$pwd'";
     $q_user = mysqli_query($connection, $tbl_user);
     if($customer = mysqli_fetch_assoc($q_user))
@@ -42,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
 }
-
+//
 function validate($data){
     $data = trim($data);
     $data = stripcslashes($data);

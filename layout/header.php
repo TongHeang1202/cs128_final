@@ -1,4 +1,5 @@
 <script>
+    //script for profile button (login, account, register)
     buttonClose = true;
     function open_logout(){
         if (buttonClose){
@@ -13,7 +14,7 @@
         }
     }
 </script>
-
+<!-- nav for when there is a user -->
 <div class="topnav"> 
         <div class="topnav-left">
             <a href="./">
@@ -32,7 +33,9 @@
         </div>
 
         <div class="topnav-right">
+            <!-- start php -->
             <?php 
+            //if the user is not logged in
             if (!isset($_SESSION["user_id"])){
             ?>
                 <a id="sign-in" href="login.php">Sign In</a>
@@ -40,6 +43,7 @@
             <?php 
             }
             else {
+                //if there is a logged in user
                 ?>
                 <a id="shopping-cart" href="cart-page.php"><img src="images/shopping-cart.png"></a>
                 <a id="account-icon" onclick="open_logout()">
@@ -49,5 +53,6 @@
                 <?php 
             }
             ?>
+            <!-- end php -->
         </div>
     </div>

@@ -2,13 +2,16 @@
     // Connect to database
     include("layout/connectDB.php");
 
+    // get product form db
     $tbl_product = "SELECT * FROM `tbl_product`";
     $q_product = mysqli_query($connection, $tbl_product);
     
+    // if id is empty, DIE
     if (!isset($_GET["id"])){
         die("This page does not exist");
     }
 
+    // check if id is a valid product from db
     $selected_product = $_GET["id"];
     $not_valid_product = true;
     while($product_list = mysqli_fetch_assoc($q_product)){
@@ -29,9 +32,10 @@
         die("This page does not exist");
     }
     
+    // set the product id of what we are viewing
     $_SESSION["product_id"] = $product_id;
     
-    // check if user has put it in cart already
+    // check if user has put it in cart already, and get the quantity from db
     if (isset($_SESSION["user_id"])){
         $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `product_id` = '$product_id'";
         $q_cart = mysqli_query($connection, $tbl_cart);
@@ -61,8 +65,10 @@
     <title><?php echo $product_name;?></title>
 
     <script>
+        // get quantity and stock from db
         quantity = <?php echo $quantity_in_cart; ?>;
         stock = <?php echo $product_quantity ?>;
+        // add button function
         function add_quantity(){
             if(quantity < stock){
                 quantity++;
@@ -71,6 +77,7 @@
             }
         }
 
+        // subtract button function
         function subtract_quantity(){
             if(quantity > 0){
                 quantity--;
@@ -106,8 +113,10 @@
                 
                 <h2 class="product-price"><?php echo "$" . $product_price; ?></h2>
                 <h2>In Stock: <?php echo $product_quantity; ?></h2>
-
+                
+                <!-- php open -->
                 <?php 
+                // if the user is logged in they can add to cart
                 if (isset($_SESSION["user_id"])){
                 ?>
                     <div class="add-to-cart">
@@ -122,12 +131,14 @@
                     </div>
                 <?php
                 }
+                // if user is not logged in they have to sign in
                 else {
                 ?>
                     <a class="sign-in-button" href="login.php">Sign In</a>
                 <?php 
                 }
                 ?>
+                <!-- php close -->
             </div>
             
         </form>

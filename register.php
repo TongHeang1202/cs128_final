@@ -9,7 +9,7 @@ include("layout/connectDB.php");
       $email = $_POST['email'];
       $pwd = $_POST['password'];
       $pwdc = $_POST['pwdc'];
-
+// validate form fields
     if (empty($name)){
         $error = true;
         $nameErr = 'name is required!';
@@ -28,21 +28,23 @@ include("layout/connectDB.php");
     if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $emailErr = 'email format is not correct!';
         }
+        // check whether email has been used already
     $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email` = '$email'";
     $q_user = mysqli_query($connection, $tbl_user);
     if (mysqli_num_rows($q_user) > 0){
       $error = true;
       $emailErr = "email already used";
     }
+    //checks the length of the password
     }
     if (empty($pwd)){
       $error = true;
         $pwdErr = 'password is required!';
-    }else if(strlen($pwd) < 10){
+    }else if(strlen($pwd) < 8){
       $error = true;
       $pwdErr = 'password is too short!';
     }
-
+    // checks if passwords are the same
     if (empty($pwdc)){
       $error = true;
         $pwdcErr = 'password is not confirmed!';
@@ -51,7 +53,7 @@ include("layout/connectDB.php");
       $error = true;
       $pwdcErr = 'password is not the same';
     }
-    
+    // if there isn't an error add user to db
     if(!$error)
     {
       $sql = "INSERT INTO `tbl_user`(user_name, user_email, user_password) VALUES ('$name', '$email', '$pwd')";
@@ -64,7 +66,7 @@ include("layout/connectDB.php");
       mysqli_close($connection);
     }
   }
-
+        // validate data
         function validate($data) {
           $data = trim($data);
           $data = stripslashes($data);
