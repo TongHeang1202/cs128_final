@@ -57,6 +57,7 @@ include("layout/connectDB.php");
       $sql = "INSERT INTO `tbl_user`(user_name, user_email, user_password) VALUES ('$name', '$email', '$pwd')";
       if (mysqli_query($connection, $sql)) {
         echo "New record created successfully";
+        header("location: login.php");
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($connection);
       }
