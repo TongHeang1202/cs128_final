@@ -14,7 +14,7 @@
     }
 </script>
 
-<div class="topnav">
+<div class="topnav"> 
         <div class="topnav-left">
             <a href="./">
                 <img class="logo" src="images/logo.png">
