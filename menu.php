@@ -39,18 +39,6 @@
     <link href="css/footer.css" rel="stylesheet">
     <title><?php echo strtoupper($_GET["category"])?></title>
 
-    <script>
-        function changeCart(id){
-            cartImg = document.getElementById("cart"+id);
-            imgName = cartImg.src;
-            if (imgName.search("images/shopping-cart.png") != -1){
-                cartImg.src = "images/shopping-cart-selected.png";
-            }
-            else {
-                cartImg.src = "images/shopping-cart.png";
-            }
-        }
-    </script>
 </head>
 <body>
     <!-- Open Navigation Bar Container -->
@@ -76,10 +64,7 @@
                     <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
                     <img class="product-showcase-image" src="<?php echo $product["product_image"]; ?>">
                     <div class="product-showcase-tag">
-                        <span><?php echo "$" . $product["product_price"]; ?></span>
-                        <button class="add-to-cart" onclick="changeCart(<?php echo $product_id;?>)">
-                            <img id="cart<?php echo $product_id;?>" src="images/shopping-cart.png">
-                        </button>
+                        <span><?php echo "$" . $product["product_price"]; ?></span>\
                     </div>
                 </a>
             <?php
