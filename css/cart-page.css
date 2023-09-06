@@ -33,6 +33,26 @@ body {
     align-items: center;
 }
 
+#submit-button {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    background-color: #ddd;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.1s;
+}
+
+#submit-button:hover {
+    cursor: pointer;
+    background-color: #bbb;
+    border: 1px solid #111;
+}
+
 .products {
     display: flex;
     justify-content: space-between;
