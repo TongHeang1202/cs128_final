@@ -2,11 +2,12 @@
     // Connect to database
     include("layout/connectDB.php");
 
+    // make sure user is logged in
     if (!isset($_SESSION["user_id"])) header("location: index.php");
 
     $customer = $_SESSION["user_id"];
 
-    
+    // if the user saved changes
     if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $array = $_SESSION["id_array"];
         for ($i = 0; $i < count($array); $i++){
@@ -16,6 +17,7 @@
         }
     }
     
+    // open the cart db
     $tbl_cart = "SELECT * FROM `tbl_cart` WHERE `user_id` = '$customer'";
     $q_cart = mysqli_query($connection, $tbl_cart);
 ?>
@@ -33,6 +35,7 @@
     <title>Cart</title>
 
     <script>
+        // function to add quantity
         function add_quantity(id, stock){
             quantity = parseInt(document.getElementById("quantity" + id).innerHTML);
             if(quantity < stock){
@@ -43,6 +46,7 @@
             }
         }
 
+        // function to subtract quantity
         function subtract_quantity(id,stock){
             quantity = parseInt(document.getElementById("quantity" + id).innerHTML);
             if(quantity > 0){
@@ -53,6 +57,7 @@
             }
         }
 
+        // reomve entry function
         function remove(id){
                 document.getElementById("quantity" + id).innerHTML = 0;
                 document.getElementById("input" + id).value = 0;
@@ -74,14 +79,17 @@
             <h3 style="width:100px;">Price</h3>
             <h3 style="width:100px;">Quantity</h3>
             <h3 style="width:100px;">
+                <!-- button to submit changes -->
                 <button id="submit-button" type="submit">Save Changes</button>
             </h3>
         </div>
 
+        <!-- php open -->
         <?php 
-
+        // set array for all the products in list
         $id_array = array();
         $total = 0;
+        // get all item in cart that the user add
         while ($cart_item = mysqli_fetch_assoc($q_cart)){
             $product_id = $cart_item["product_id"];
             $tbl_product = "SELECT * FROM `tbl_product` WHERE `product_id` = $product_id";
@@ -89,8 +97,10 @@
             $product = mysqli_fetch_assoc($q_product);
             $product_stock = $product["product_quantity"];
 
+            // if user put 0 in then skip
             if ($cart_item["cart_quantity"] == 0) continue;
             array_push($id_array, $product_id);
+            // variable for total price
             $total += $product["product_price"] * $cart_item["cart_quantity"];
         ?>
             <div class="products">
@@ -108,13 +118,17 @@
                     <h1 id="quantity<?php echo $product_id;?>" class="quantity"  ><?php echo $cart_item["cart_quantity"]; ?></h1>
                     <button type="button" class="quantity-add" onclick="add_quantity(<?php echo $product_id . ',' . $product_stock;?>)">+</button>
                 </div>
+                <!-- button to remove the item from cart -->
                 <button type="submit" onclick="remove(<?php echo $product_id?>)" class="remove-button">Remove</div>
             </div>
         <?php
         }
 
         ?>
-        <?php $_SESSION["id_array"] = $id_array ?>
+        <!-- set id array in session for easy access -->
+        <?php $_SESSION["id_array"] = $id_array; 
+        ?>
+        <!-- php close -->
 
         <div class="total">Total: $<?php echo $total; ?></div>
     </form>
