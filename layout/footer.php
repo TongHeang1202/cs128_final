@@ -12,17 +12,17 @@
             <!-- product -->
             <div class="footer-link-wrapper">
                 <div class="footer-header">Products</div>
-                <a class="footer-link" href="menu.php?category=piano">Piano</a>
-                <a class="footer-link" href="menu.php?category=guitar">Guitar</a>
-                <a class="footer-link" href="menu.php?category=violin">Violin</a>
+                <a class="footer-link" style="text-decoration: none" href="menu.php?category=piano">Piano</a>
+                <a class="footer-link" style="text-decoration: none" href="menu.php?category=guitar">Guitar</a>
+                <a class="footer-link" style="text-decoration: none" href="menu.php?category=violin">Violin</a>
             </div>
             <!-- end product -->
 
             <!-- about -->
             <div class="footer-link-wrapper">
                 <div class="footer-header">About</div>
-                <a class="footer-link" href="about.php">Our Team</a>
-                <a class="footer-link" href="support.php">support</a>
+                <a class="footer-link" style="text-decoration: none" href="about.php">Our Team</a>
+                <a class="footer-link" style="text-decoration: none" href="support.php">support</a>
             </div>
             <!-- end about -->
 
