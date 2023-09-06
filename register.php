@@ -28,22 +28,30 @@ include("layout/connectDB.php");
     if (!filter_var($email,FILTER_VALIDATE_EMAIL)){
             $emailErr = 'email format is not correct!';
         }
+    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email` = '$email'";
+    $q_user = mysqli_query($connection, $tbl_user);
+    if (mysqli_num_rows($q_user) > 0){
+      $error = true;
+      $emailErr = "email already used";
+    }
     }
     if (empty($pwd)){
       $error = true;
         $pwdErr = 'password is required!';
-    }else{
-        $pwd = validate($_POST['password']);
-        //check if the password format is correct
+    }else if(strlen($pwd) < 10){
+      $error = true;
+      $pwdErr = 'password is too short!';
     }
 
     if (empty($pwdc)){
       $error = true;
         $pwdcErr = 'password is not confirmed!';
-    }else{
-        $pwdc = validate($_POST['pwdc']);
-        //check if the password is matched or not
     }
+    else if ($pwd != $pwdc){
+      $error = true;
+      $pwdcErr = 'password is not the same';
+    }
+    
     if(!$error)
     {
       $sql = "INSERT INTO `tbl_user`(user_name, user_email, user_password) VALUES ('$name', '$email', '$pwd')";
