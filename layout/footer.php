@@ -22,7 +22,7 @@
             <div class="footer-link-wrapper">
                 <div class="footer-header">About</div>
                 <a class="footer-link" style="text-decoration: none" href="about.php">Our Team</a>
-                <a class="footer-link" style="text-decoration: none" href="support.php">support</a>
+                <a class="footer-link" style="text-decoration: none" href="support.php">Support</a>
             </div>
             <!-- end about -->
 
