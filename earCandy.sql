@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2023 at 03:23 PM
+-- Generation Time: Sep 06, 2023 at 05:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -33,6 +33,14 @@ CREATE TABLE `tbl_cart` (
   `user_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_cart`
+--
+
+INSERT INTO `tbl_cart` (`cart_id`, `cart_quantity`, `user_id`, `product_id`) VALUES
+(4, 1, 1, 3),
+(5, 1, 1, 5);
 
 -- --------------------------------------------------------
 
@@ -78,30 +86,30 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_description`, `product_price`, `product_quantity`, `product_image`, `rating`, `rating_count`, `category_id`) VALUES
-(1, 'Starument Digital Piano PD-90', 'A lightweight starter piano', 129.99, 6, 'images/piano/sql_piano1.jpeg', 0.00, 0, 1),
-(2, 'Arkon Digital Piano AK-47', 'Digital organ with built-in microphone', 159.99, 9, 'images/piano/sql_piano2.jpeg', 0.00, 0, 1),
-(3, 'Rock Digital Organ RX-350', 'Piano that will rock your world', 84.99, 1, 'images/piano/sql_piano3.jpeg', 0.00, 0, 1),
-(4, 'RockJam Digital Organ NX-200T', 'A beginner-friendly piano with pedal', 109.99, 0, 'images/piano/sql_piano4.jpeg\r\n', 0.00, 0, 1),
-(5, 'Roland GO:KEYS', 'For playing music on the GO', 349.99, 11, 'images/piano/sql_piano5.jpeg', 0.00, 0, 1),
-(6, 'Roland QX-110', 'Upright Digital Piano with 88-keys', 499.99, 6, 'images/piano/sql_piano6.jpeg', 0.00, 0, 1),
-(7, 'Roland QZ-225', 'Digital Piano with weighted keys', 779.99, 3, 'images/piano/sql_piano7.jpeg', 0.00, 0, 1),
-(8, 'Roland QX-110 Pro', 'Perfect piano for kids and pros', 1099.99, 8, 'images/piano/sql_piano8.jpeg\r\n', 0.00, 0, 1),
-(9, 'Ibanez GRG', 'An electric 6-string guitar', 369.99, 12, 'images/guitar/sql_guitar1.jpeg', 0.00, 0, 2),
-(10, 'Ibanez GRX70', '6-String Electric with whammy bar', 409.99, 6, 'images/guitar/sql_guitar2.jpeg', 0.00, 0, 2),
-(11, 'Ibanez AEWC400', 'Good Quality Acoustic Electric Guitar', 289.99, 4, 'images/guitar/sql_guitar3.jpeg', 0.00, 0, 2),
-(12, 'Ibanez GRGA', '6-String Electric with whammy bar', 489.99, 15, 'images/guitar/sql_guitar4.jpeg', 0.00, 0, 2),
-(13, 'Ibanez AW540PN', '6-String Acoustic Guitar', 349.99, 9, 'images/guitar/sql_guitar5.jpeg', 0.00, 0, 2),
-(14, 'Ibanez GA34ST', '6-String Classical Guitar', 199.99, 21, 'images/guitar/sql_guitar6.jpeg', 0.00, 0, 2),
-(15, 'Ibanez AZES60', 'Standard Electric Guitar for Beginners', 229.99, 14, 'images/guitar/sql_guitar7.jpeg', 0.00, 0, 2),
-(16, 'Ibanez RG470DX', 'Black Planet 6-String Electric Guitar', 619.99, 32, 'images/guitar/sql_guitar8.jpeg', 0.00, 0, 2),
-(17, 'Eastar CN90 Full Set', 'Full Set of Violin Essentials', 709.99, 32, 'images/violin/sql_violin1.jpeg', 0.00, 0, 3),
-(18, 'Poseidon SolidWood', 'Solid Wood Violin Kit for Children', 89.99, 21, 'images/violin/sql_violin2.jpeg', 0.00, 0, 3),
-(19, 'Djlin APM Set', 'Affordable First Violin for Beginners', 79.99, 37, 'images/violin/sql_violin3.jpeg', 0.00, 0, 3),
-(20, 'Mendini By Cecilio MV900', 'Full Size Blood Red Violin', 479.99, 5, 'images/violin/sql_violin4.jpeg', 0.00, 0, 3),
-(21, 'Cecilio CVN-300', 'Ebony Violin with D\'Addario Strings', 324.99, 25, 'images/violin/sql_violin5.jpeg', 0.00, 0, 3),
-(22, 'Naeve UL-18', 'Beginner Violin set with Rosin', 99.99, 9, 'images/violin/sql_violin6.jpeg', 0.00, 0, 3),
-(23, 'Eastar VL-34', 'Full Size Beginner Violin for Adults', 149.99, 27, 'images/violin/sql_violin7.jpeg', 0.00, 0, 3),
-(24, 'Kmise KN-24', 'Full Size Acoustic Violin 4/4', 79.99, 47, 'images/violin/sql_violin8.jpeg', 0.00, 0, 3);
+(1, 'Starument Digital Piano PD-90', 'A lightweight starter piano', 129.99, 6, 'images/piano/sql_piano1.jpeg', 2.57, 0, 1),
+(2, 'Arkon Digital Piano AK-47', 'Digital organ with built-in microphone', 159.99, 9, 'images/piano/sql_piano2.jpeg', 4.32, 0, 1),
+(3, 'Rock Digital Organ RX-350', 'Piano that will rock your world', 84.99, 1, 'images/piano/sql_piano3.jpeg', 4.32, 0, 1),
+(4, 'RockJam Digital Organ NX-200T', 'A beginner-friendly piano with pedal', 109.99, 0, 'images/piano/sql_piano4.jpeg\r\n', 1.23, 0, 1),
+(5, 'Roland GO:KEYS', 'For playing music on the GO', 349.99, 11, 'images/piano/sql_piano5.jpeg', 3.54, 0, 1),
+(6, 'Roland QX-110', 'Upright Digital Piano with 88-keys', 499.99, 6, 'images/piano/sql_piano6.jpeg', 4.21, 0, 1),
+(7, 'Roland QZ-225', 'Digital Piano with weighted keys', 779.99, 3, 'images/piano/sql_piano7.jpeg', 3.22, 0, 1),
+(8, 'Roland QX-110 Pro', 'Perfect piano for kids and pros', 1099.99, 8, 'images/piano/sql_piano8.jpeg\r\n', 4.21, 0, 1),
+(9, 'Ibanez GRG', 'An electric 6-string guitar', 369.99, 12, 'images/guitar/sql_guitar1.jpeg', 1.98, 0, 2),
+(10, 'Ibanez GRX70', '6-String Electric with whammy bar', 409.99, 6, 'images/guitar/sql_guitar2.jpeg', 3.78, 0, 2),
+(11, 'Ibanez AEWC400', 'Good Quality Acoustic Electric Guitar', 289.99, 4, 'images/guitar/sql_guitar3.jpeg', 2.76, 0, 2),
+(12, 'Ibanez GRGA', '6-String Electric with whammy bar', 489.99, 15, 'images/guitar/sql_guitar4.jpeg', 4.87, 0, 2),
+(13, 'Ibanez AW540PN', '6-String Acoustic Guitar', 349.99, 9, 'images/guitar/sql_guitar5.jpeg', 4.92, 0, 2),
+(14, 'Ibanez GA34ST', '6-String Classical Guitar', 199.99, 21, 'images/guitar/sql_guitar6.jpeg', 3.99, 0, 2),
+(15, 'Ibanez AZES60', 'Standard Electric Guitar for Beginners', 229.99, 14, 'images/guitar/sql_guitar7.jpeg', 2.96, 0, 2),
+(16, 'Ibanez RG470DX', 'Black Planet 6-String Electric Guitar', 619.99, 32, 'images/guitar/sql_guitar8.jpeg', 4.29, 0, 2),
+(17, 'Eastar CN90 Full Set', 'Full Set of Violin Essentials', 709.99, 32, 'images/violin/sql_violin1.jpeg', 2.74, 0, 3),
+(18, 'Poseidon SolidWood', 'Solid Wood Violin Kit for Children', 89.99, 21, 'images/violin/sql_violin2.jpeg', 4.85, 0, 3),
+(19, 'Djlin APM Set', 'Affordable First Violin for Beginners', 79.99, 37, 'images/violin/sql_violin3.jpeg', 5.00, 0, 3),
+(20, 'Mendini By Cecilio MV900', 'Full Size Blood Red Violin', 479.99, 5, 'images/violin/sql_violin4.jpeg', 3.74, 0, 3),
+(21, 'Cecilio CVN-300', 'Ebony Violin with D\'Addario Strings', 324.99, 25, 'images/violin/sql_violin5.jpeg', 2.74, 0, 3),
+(22, 'Naeve UL-18', 'Beginner Violin set with Rosin', 99.99, 9, 'images/violin/sql_violin6.jpeg', 1.94, 0, 3),
+(23, 'Eastar VL-34', 'Full Size Beginner Violin for Adults', 149.99, 27, 'images/violin/sql_violin7.jpeg', 1.35, 0, 3),
+(24, 'Kmise KN-24', 'Full Size Acoustic Violin 4/4', 79.99, 47, 'images/violin/sql_violin8.jpeg', 3.24, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -115,6 +123,13 @@ CREATE TABLE `tbl_user` (
   `user_email` varchar(40) NOT NULL,
   `user_password` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`) VALUES
+(1, 'kolbot', 'kolbot@gmail.com', '1234567');
 
 --
 -- Indexes for dumped tables
@@ -155,7 +170,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `cart_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
@@ -173,7 +188,7 @@ ALTER TABLE `tbl_product`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
