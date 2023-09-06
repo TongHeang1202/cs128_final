@@ -64,7 +64,7 @@
                     <div class="product-showcase-name"><?php echo $product["product_name"]; ?></div>
                     <img class="product-showcase-image" src="<?php echo $product["product_image"]; ?>">
                     <div class="product-showcase-tag">
-                        <span><?php echo "$" . $product["product_price"]; ?></span>\
+                        <span><?php echo "$" . $product["product_price"]; ?></span>
                     </div>
                 </a>
             <?php

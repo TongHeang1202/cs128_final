@@ -81,6 +81,7 @@
         <?php 
 
         $id_array = array();
+        $total = 0;
         while ($cart_item = mysqli_fetch_assoc($q_cart)){
             $product_id = $cart_item["product_id"];
             $tbl_product = "SELECT * FROM `tbl_product` WHERE `product_id` = $product_id";
@@ -90,6 +91,7 @@
 
             if ($cart_item["cart_quantity"] == 0) continue;
             array_push($id_array, $product_id);
+            $total += $product["product_price"] * $cart_item["cart_quantity"];
         ?>
             <div class="products">
                 <div class="product-image">
@@ -113,6 +115,8 @@
 
         ?>
         <?php $_SESSION["id_array"] = $id_array ?>
+
+        <div class="total">Total: $<?php echo $total; ?></div>
     </form>
     <!-- Close Main Body div -->
 
