@@ -8,6 +8,7 @@ include("layout/connectDB.php");
       $name = $_POST['fullname'];
       $email = $_POST['email'];
       $pwd = $_POST['password'];
+      $encpwd = md5($pwd);
       $pwdc = $_POST['pwdc'];
 // validate form fields
     if (empty($name)){
@@ -56,7 +57,7 @@ include("layout/connectDB.php");
     // if there isn't an error add user to db
     if(!$error)
     {
-      $sql = "INSERT INTO `tbl_user`(user_name, user_email, user_password) VALUES ('$name', '$email', '$pwd')";
+      $sql = "INSERT INTO `tbl_user`(user_name, user_email, user_password) VALUES ('$name', '$email', '$encpwd')";
       if (mysqli_query($connection, $sql)) {
         echo "New record created successfully";
         header("location: login.php");

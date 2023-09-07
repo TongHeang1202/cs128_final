@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $error = false; 
     $email =$_POST['email'];
     $pwd = $_POST['password'];
+    $encpwd = md5($pwd);
     // validating email...
     if (empty($_POST['email'])){
         $emailErr = 'Email is required!';
@@ -30,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $pwd = validate($_POST['pwd']);
     }
     // checking if password and email matches to user in db
-    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= '$email' AND `user_password` = '$pwd'";
+    $tbl_user = "SELECT * FROM `tbl_user` WHERE `user_email`= '$email' AND `user_password` = '$encpwd'";
     $q_user = mysqli_query($connection, $tbl_user);
     if($customer = mysqli_fetch_assoc($q_user))
     {
