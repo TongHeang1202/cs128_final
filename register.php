@@ -90,13 +90,13 @@ include("layout/connectDB.php");
     <!-- Bootstrap 5 bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- style -->
-    <title>login</title>
+    <title>Register</title>
 
 </head>
 
 <body>
 
-<section class="vh-200 bg-image"
+<section class="vh-100 bg-image"
   style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
   <div class="mask d-flex align-items-center h-100 bg-dark">
     <div class="container h-100">

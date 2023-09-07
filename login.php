@@ -65,8 +65,8 @@ function validate($data){
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- style -->
-    <link rel="stylesheet" href="./css/login.css">
-    <title>login</title>
+    <link rel="stylesheet" href="css/login.css?v=2">
+    <title>Login</title>
 </head>
 
 <body>
